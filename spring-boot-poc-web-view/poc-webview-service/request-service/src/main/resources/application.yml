@@ -1,0 +1,31 @@
+server:
+  port: 9003
+  servlet:
+    context-path: /request-service
+
+spring:
+  application:
+    name: request-service
+  profiles:
+    active: '@my.spring.profiles.active@'
+  datasource:
+    url: jdbc:sqlserver://10.9.224.147;databaseName=AMS_D
+    username: amsadm
+    password: admP@ssw0rd
+
+jwt:
+  secret: 124asdf656asdf6a5sdf6OLJPOS
+  expirationDateInMs: 100000000
+  refreshExpirationDateInMs: 100000000
+
+app:
+  nasPath: '/data/image-path'
+  ws:
+    hrms:
+      url: https://hrms2ws.uat.ktb/HRMSWS/EmployeeWS?wsdl
+
+logging:
+  level:
+    org:
+      springframework:
+        ws: TRACE

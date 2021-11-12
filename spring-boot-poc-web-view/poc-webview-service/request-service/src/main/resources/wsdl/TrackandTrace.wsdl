@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.xmlforasp.net" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.xmlforasp.net" targetNamespace="http://www.xmlforasp.net">
+  <wsdl:types>
+    <s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.xmlforasp.net" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.xmlforasp.net" version="1.0">
+    <!--GetItems-->
+    <s:element name="GetItems">
+        <s:complexType>
+            <s:sequence>
+                <s:element name="user" type="s:string"/>
+                <s:element name="password" type="s:string"/>
+                <s:element name="lang" type="s:string"/>
+                <s:element name="Barcode" type="s:string"/>
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+    <s:element name="GetItemsResponse">
+        <s:complexType>
+            <s:sequence>
+                <s:element name="GetItemsResult" type="tns:getItemsResultDomain"/>
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+    <s:element name="RequestItems">
+        <s:complexType>
+            <s:sequence>
+                <s:element name="user" type="s:string"/>
+                <s:element name="password" type="s:string"/>
+                <s:element name="lang" type="s:string"/>
+                <s:element maxOccurs="unbounded" name="Barcode" type="s:string"/>
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+    <s:element name="RequestItemsResponse">
+        <s:complexType>
+            <s:sequence>
+                <s:element name="RequestItemsResult" type="tns:requestItemsResultDomain"/>
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+    
+    <!--ComplexType-->
+    <s:complexType name="getItemsResultDomain">
+        <s:sequence>
+            <s:element name="ItemsData" type="tns:itemsData"/>
+            <s:element name="TrackCountData" type="tns:trackCountDataDomain"/>
+        </s:sequence>
+    </s:complexType>
+    <s:complexType name="itemsData">
+        <s:sequence>
+            <s:element maxOccurs="unbounded" name="Items" type="tns:Items"/>
+        </s:sequence>
+    </s:complexType>
+    <s:complexType name="Items">
+        <s:sequence>
+            <s:element name="Barcode" type="s:string"/>
+            <s:element name="Status" type="s:string"/>
+            <s:element name="StatusName" type="s:string"/>
+            <s:element name="Description" type="s:string"/>
+            <s:element name="DateTime" type="s:string"/>
+            <s:element name="Signature" type="s:string"/>
+            <s:element name="Location" type="s:string"/>
+            <s:element name="DeliveryDateTime" type="s:string"/>
+            <s:element name="PostCode" type="s:string"/>
+            <s:element name="DeliveryStatus" type="s:string"/>
+        </s:sequence>
+    </s:complexType>
+    <s:complexType name="trackCountDataDomain">
+        <s:sequence>
+            <s:element name="TrackDate" type="s:string"/>
+            <s:element name="TrackStatus" type="s:string"/>
+            <s:element name="CountNumber" type="s:string"/>
+            <s:element name="TrackCountLimit" type="s:string"/>
+        </s:sequence>
+    </s:complexType>
+    
+    <s:complexType name="requestItemsResultDomain">
+        <s:sequence>
+            <s:element name="ItemsData" type="tns:itemsData2"/>
+            <s:element name="RequestCountData" type="tns:trackCountDataDomain"/>
+        </s:sequence>
+    </s:complexType>
+    <s:complexType name="itemsData2">
+        <s:sequence>
+            <s:element name="StatusResponse" type="s:string"/>
+        </s:sequence>
+    </s:complexType>
+    <!--Language-->
+    <s:simpleType name="language">
+        <s:restriction base="s:string">
+            <s:enumeration value="TH"/>
+            <s:enumeration value="EN"/>
+            <s:enumeration value="CN"/>
+        </s:restriction>
+    </s:simpleType>
+</s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetItemsResponse">
+    <wsdl:part element="tns:GetItemsResponse" name="GetItemsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RequestItemsResponse">
+    <wsdl:part element="tns:RequestItemsResponse" name="RequestItemsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Track_x0020_and_x0020_Trace_x0020_Service">
+    <wsdl:operation name="GetItems">
+      <wsdl:output message="tns:GetItemsResponse" name="GetItemsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestItems">
+      <wsdl:output message="tns:RequestItemsResponse" name="RequestItemsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap11" type="tns:Track_x0020_and_x0020_Trace_x0020_Service">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetItems">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="GetItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestItems">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="RequestItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap12" type="tns:Track_x0020_and_x0020_Trace_x0020_Service">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetItems">
+      <soap12:operation soapAction=""/>
+      <wsdl:output name="GetItemsResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestItems">
+      <soap12:operation soapAction=""/>
+      <wsdl:output name="RequestItemsResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Track_x0020_and_x0020_Trace_x0020_ServiceService">
+    <wsdl:port binding="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap11" name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap11">
+      <soap:address location="https://trackapisoap.thailandpost.co.th:443/TTPOSTWebService"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap12" name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap12">
+      <soap12:address location="https://trackapisoap.thailandpost.co.th:443/TTPOSTWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

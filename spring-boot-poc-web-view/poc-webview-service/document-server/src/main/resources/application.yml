@@ -1,0 +1,24 @@
+info:
+  component: Default Single Swagger Document Server for MicroService
+
+server:
+  port: 9100
+  servlet:
+    context-path: /document-server
+
+documentation:
+  baseurl: http://localhost
+  swagger:
+    services:
+      -
+        name: auth-service
+        url: ${BASE_URL1:http://localhost:9001/auth-service/v2/api-docs}
+        version: 1.0
+      -
+        name: maker-service
+        url: ${BASE_URL2:http://localhost:9002/maker-service/v2/api-docs}
+        version: 1.0
+      -
+        name: request-service
+        url: ${BASE_URL3:http://localhost:9003/request-service/v2/api-docs}
+        version: 1.0

@@ -1,0 +1,18 @@
+server:
+  port: 9002
+  servlet:
+    context-path: /maker-service
+
+spring:
+  application:
+    name: maker-service
+  profiles:
+    active: '@my.spring.profiles.active@'
+  datasource:
+    url: jdbc:sqlserver://10.9.224.147;databaseName=AMS_D
+    username: amsadm
+    password: admP@ssw0rd
+jwt:
+  secret: 124asdf656asdf6a5sdf6OLJPOS
+  expirationDateInMs: 100000000
+  refreshExpirationDateInMs: 100000000

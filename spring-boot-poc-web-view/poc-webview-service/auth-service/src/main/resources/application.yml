@@ -1,0 +1,19 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /auth-service
+
+spring:
+  application:
+    name: auth-service
+  profiles:
+    active: '@my.spring.profiles.active@'
+  datasource:
+    url: jdbc:sqlserver://10.9.224.147;databaseName=AMS_D
+    username: amsadm
+    password: admP@ssw0rd
+
+jwt:
+  secret: 124asdf656asdf6a5sdf6OLJPOS
+  expirationDateInMs: 100000000
+  refreshExpirationDateInMs: 100000000

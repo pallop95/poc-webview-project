@@ -1,0 +1,1695 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:EmployeeWS/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="EmployeeWSService" targetNamespace="urn:EmployeeWS/types">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:EmployeeWS/types" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:EmployeeWS/types">
+  <xs:element name="GetConsent" type="tns:GetConsent"/>
+  <xs:element name="GetConsentResponse" type="tns:GetConsentResponse"/>
+  <xs:element name="GetEmpByEmail" type="tns:GetEmpByEmail"/>
+  <xs:element name="GetEmpByEmailResponse" type="tns:GetEmpByEmailResponse"/>
+  <xs:element name="GetEmpConsentFlag" type="tns:GetEmpConsentFlag"/>
+  <xs:element name="GetEmpConsentFlagResponse" type="tns:GetEmpConsentFlagResponse"/>
+  <xs:element name="GetPolicyAll" type="tns:GetPolicyAll"/>
+  <xs:element name="GetPolicyAllResponse" type="tns:GetPolicyAllResponse"/>
+  <xs:element name="InsertConsent" type="tns:InsertConsent"/>
+  <xs:element name="InsertConsentResponse" type="tns:InsertConsentResponse"/>
+  <xs:element name="getEmpAbsence" type="tns:getEmpAbsence"/>
+  <xs:element name="getEmpAbsenceResponse" type="tns:getEmpAbsenceResponse"/>
+  <xs:element name="getEmpBusinessCard" type="tns:getEmpBusinessCard"/>
+  <xs:element name="getEmpBusinessCardResponse" type="tns:getEmpBusinessCardResponse"/>
+  <xs:element name="getEmpContact" type="tns:getEmpContact"/>
+  <xs:element name="getEmpContactResponse" type="tns:getEmpContactResponse"/>
+  <xs:element name="getEmpName" type="tns:getEmpName"/>
+  <xs:element name="getEmpNameResponse" type="tns:getEmpNameResponse"/>
+  <xs:element name="getEmpPhoto" type="tns:getEmpPhoto"/>
+  <xs:element name="getEmpPhotoList" type="tns:getEmpPhotoList"/>
+  <xs:element name="getEmpPhotoListProc" type="tns:getEmpPhotoListProc"/>
+  <xs:element name="getEmpPhotoListProcResponse" type="tns:getEmpPhotoListProcResponse"/>
+  <xs:element name="getEmpPhotoListResponse" type="tns:getEmpPhotoListResponse"/>
+  <xs:element name="getEmpPhotoResponse" type="tns:getEmpPhotoResponse"/>
+  <xs:element name="getEmpRC" type="tns:getEmpRC"/>
+  <xs:element name="getEmpRCResponse" type="tns:getEmpRCResponse"/>
+  <xs:element name="getEmpSignDetail" type="tns:getEmpSignDetail"/>
+  <xs:element name="getEmpSignDetailResponse" type="tns:getEmpSignDetailResponse"/>
+  <xs:element name="getEmployee" type="tns:getEmployee"/>
+  <xs:element name="getEmployeeAll" type="tns:getEmployeeAll"/>
+  <xs:element name="getEmployeeAllResponse" type="tns:getEmployeeAllResponse"/>
+  <xs:element name="getEmployeeByCitizenOrEmplid" type="tns:getEmployeeByCitizenOrEmplid"/>
+  <xs:element name="getEmployeeByCitizenOrEmplidResponse" type="tns:getEmployeeByCitizenOrEmplidResponse"/>
+  <xs:element name="getEmployeeByName" type="tns:getEmployeeByName"/>
+  <xs:element name="getEmployeeByNameResponse" type="tns:getEmployeeByNameResponse"/>
+  <xs:element name="getEmployeeByRankOrCostCenter" type="tns:getEmployeeByRankOrCostCenter"/>
+  <xs:element name="getEmployeeByRankOrCostCenterResponse" type="tns:getEmployeeByRankOrCostCenterResponse"/>
+  <xs:element name="getEmployeeDetail" type="tns:getEmployeeDetail"/>
+  <xs:element name="getEmployeeDetailResponse" type="tns:getEmployeeDetailResponse"/>
+  <xs:element name="getEmployeeInfo" type="tns:getEmployeeInfo"/>
+  <xs:element name="getEmployeeInfoResponse" type="tns:getEmployeeInfoResponse"/>
+  <xs:element name="getEmployeeResponse" type="tns:getEmployeeResponse"/>
+  <xs:element name="getLicense" type="tns:getLicense"/>
+  <xs:element name="getLicenseInfo" type="tns:getLicenseInfo"/>
+  <xs:element name="getLicenseInfoResponse" type="tns:getLicenseInfoResponse"/>
+  <xs:element name="getLicenseResponse" type="tns:getLicenseResponse"/>
+  <xs:element name="getLicenseSub" type="tns:getLicenseSub"/>
+  <xs:element name="getLicenseSubResponse" type="tns:getLicenseSubResponse"/>
+  <xs:element name="getLicenseType" type="tns:getLicenseType"/>
+  <xs:element name="getLicenseTypeResponse" type="tns:getLicenseTypeResponse"/>
+  <xs:element name="getReportTo" type="tns:getReportTo"/>
+  <xs:element name="getReportToResponse" type="tns:getReportToResponse"/>
+  <xs:complexType name="GetEmpByEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbGetEmpByEmailRequestList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetEmpByEmailRequestList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="hrmSsystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="systemName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetEmpByEmailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbGetEmpByEmailRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetEmpByEmailRes">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbGetEmpByEmailList"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetEmpByEmailList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deptID" type="xs:string"/>
+          <xs:element minOccurs="0" name="descr100" type="xs:string"/>
+          <xs:element minOccurs="0" name="descrDept" type="xs:string"/>
+          <xs:element minOccurs="0" name="empId" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+          <xs:element minOccurs="0" name="ktbFieldMap" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="nameTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="rcCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="rcDescr" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="headerRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="channelID" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentDt" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="refID" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getLicenseSub">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbReqLicSub_1" type="tns:ktbReqLicSub"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbReqLicSub">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getLicenseSubResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbResLicSub"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbResLicSub">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accomp" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="expiredate" type="xs:string"/>
+      <xs:element minOccurs="0" name="license" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLicense">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetLicenseRq_1" type="tns:getLicenseRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLicenseRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accomType" type="xs:string"/>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getLicenseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:getLicenseRs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLicenseRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accomType" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossFirst" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossLast" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossRC" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplidTo" type="xs:string"/>
+      <xs:element minOccurs="0" name="evm" type="xs:string"/>
+      <xs:element minOccurs="0" name="expireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="lastEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="leaveStat" type="xs:string"/>
+      <xs:element minOccurs="0" name="licNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="mobile" type="xs:string"/>
+      <xs:element minOccurs="0" name="nationalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneEx" type="xs:string"/>
+      <xs:element minOccurs="0" name="rccode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleEng" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="headerRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="channelID" type="xs:string"/>
+      <xs:element minOccurs="0" name="currentDt" type="xs:string"/>
+      <xs:element minOccurs="0" name="currentTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="refID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpBusinessCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmpBusinessCardWS_1" type="tns:ktbEmpBussinessCardRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpBussinessCardRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpBusinessCardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmpBussinessCardRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpBussinessCardRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbEmpBussinessCardList"/>
+      <xs:element minOccurs="0" name="responseAddress1_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseAddress1_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseAddress2_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseAddress2_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCostCenter" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCostCenterDescr_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCostCenterDescr_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDistrict_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDistrict_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseEmail" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseEmplRecordNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseEmplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseFax_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseFax_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseFirstName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseFirstName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLastName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLastName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLocation" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLocationName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLocationName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseMobilePhone" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsePhone_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsePhone_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsePostal_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsePostal_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseProvinceName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseProvinceName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseRankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseRankName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseRankName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseTambon_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseTambon_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseTitle_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseTitle_th" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpBussinessCardList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address1_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="address1_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="address2_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="address2_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenter" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="district_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="district_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplRecordNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="fax_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="fax_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="location" type="xs:string"/>
+      <xs:element minOccurs="0" name="locationName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="locationName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="postal_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="postal_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="provinceName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="provinceName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankName_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankName_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="tambon_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="tambon_th" type="xs:string"/>
+      <xs:element minOccurs="0" name="title_en" type="xs:string"/>
+      <xs:element minOccurs="0" name="title_th" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS2_1" type="tns:ktbEmployeeWS2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeWS2">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByNameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:ktbEmployee"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="costCenterCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleThai" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertConsent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbInsertConsentWs_1" type="tns:consentInsertrq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consentInsertrq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="consentFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="empId" type="xs:string"/>
+          <xs:element minOccurs="0" name="questionNum" type="xs:string"/>
+          <xs:element minOccurs="0" name="versionNo" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InsertConsentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbGetConsentRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetConsentRes">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemFlagList" nillable="true" type="tns:ktbGetConsentFlagList"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbGetConsentList"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemMsgList" nillable="true" type="tns:ktbGetConsentMsgList"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetConsentFlagList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="empConsentFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="familyConsentFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="familyNationalId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ktbGetConsentList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activeFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="consentAnsFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="footerDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerDescr" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbEffdt" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbEnddt" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbOpendt" type="xs:string"/>
+          <xs:element minOccurs="0" name="questionDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="questionFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="questionNote" type="xs:string"/>
+          <xs:element minOccurs="0" name="questionNum" type="xs:string"/>
+          <xs:element minOccurs="0" name="seqNum" type="xs:string"/>
+          <xs:element minOccurs="0" name="versionNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="viewConsent" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ktbGetConsentMsgList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="p_MESSAGE" type="xs:string"/>
+          <xs:element minOccurs="0" name="p_RESULT" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetEmpConsentFlag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbConsentWS_1" type="tns:consentRetrieveFlagRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consentRetrieveFlagRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetEmpConsentFlagResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbGetConsentFlagRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetConsentFlagRes">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemFlagList" nillable="true" type="tns:ktbGetConsentFlagList"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="empConsentFlag" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmployeeWS"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeWS">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmployeeInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="age" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossEmail" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossName" type="xs:string"/>
+      <xs:element minOccurs="0" name="education" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="empClass" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="faculty" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstNameEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="hireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastNameEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="major" type="xs:string"/>
+      <xs:element minOccurs="0" name="religion" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="retireYear" type="xs:string"/>
+      <xs:element minOccurs="0" name="school" type="xs:string"/>
+      <xs:element minOccurs="0" name="sex" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleThai" type="xs:string"/>
+      <xs:element minOccurs="0" name="workAge" type="xs:string"/>
+      <xs:element minOccurs="0" name="workLocation" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByCitizenOrEmplid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeReq_1" type="tns:employeeReq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="employeeReq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="citizenID" type="xs:string"/>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByCitizenOrEmplidResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:employeeByCitizenIDOrEmplidRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="employeeByCitizenIDOrEmplidRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenID" type="xs:string"/>
+      <xs:element minOccurs="0" name="empStat" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="hireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleThai" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpAbsence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmpAbsRq_1" type="tns:ktbEmpAbsRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpAbsRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datereq" type="xs:string"/>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpAbsenceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmpAbsRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpAbsRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="abstype" type="xs:string"/>
+      <xs:element minOccurs="0" name="appflag" type="xs:string"/>
+      <xs:element minOccurs="0" name="beginflag" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="endflag" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="leaveflag" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbGetPolicyAllWS_1" type="tns:ktbGetPolicyRequestList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetPolicyRequestList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbGetPolicyRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetPolicyRes">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbGetPolicyList"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbGetPolicyList">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activeFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="createBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="createDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbDescr1" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbEffdt" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbEnddt" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktbOpendt" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastUpdate" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastUpdateBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="versionNo" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByRankOrCostCenter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeByRankOrCostCenterRq_1" type="tns:ktbEmployeeByRankOrCostCenterRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeByRankOrCostCenterRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="costCenterCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeByRankOrCostCenterResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmployeeByRankOrCostCenter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeByRankOrCostCenter">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbEmployeeByRankOrCostCenterList"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeByRankOrCostCenterList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bossId" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossName" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleThai" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmployeeWS"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeDetailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmployeeDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmployeeDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenID" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="location" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleThai" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLicenseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbLicenseInfoWS_1" type="tns:ktbLicenseInfoRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbLicenseInfoRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deviceName" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ipAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+          <xs:element minOccurs="0" name="licenseNo" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getLicenseInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbLicenseInfoRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbLicenseInfoRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemList" nillable="true" type="tns:ktbLicenseInfoList"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseFullName" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLicenseNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseLicenseType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbLicenseInfoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="fullName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+      <xs:element minOccurs="0" name="licenseNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="licenseType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetEmpNameRq_1" type="tns:getEmpNameRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpNameRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:getEmpNameRs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpNameRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="empName" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmpPhotoRq_1" type="tns:ktbEmpPhotoRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpPhotoRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhotoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmpPhotoRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpPhotoRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="photo" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmployeeWS"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeAllResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:ktbEmployee"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLicenseType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbResLic_1" type="tns:ktbReqLic"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbReqLic">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getLicenseTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbResLic"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbResLic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accomType" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossFirst" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossLast" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossRC" type="xs:string"/>
+      <xs:element minOccurs="0" name="bossTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="empLicSub" nillable="true" type="tns:ktbLicSub"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplidTo" type="xs:string"/>
+      <xs:element minOccurs="0" name="evm" type="xs:string"/>
+      <xs:element minOccurs="0" name="expireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="lastEng" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="leaveStat" type="xs:string"/>
+      <xs:element minOccurs="0" name="licNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="mobile" type="xs:string"/>
+      <xs:element minOccurs="0" name="nationalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneEx" type="xs:string"/>
+      <xs:element minOccurs="0" name="rccode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element minOccurs="0" name="titleEng" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbLicSub">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accomp" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="expireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="license" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpRC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetEmpRCRq_1" type="tns:getEmpRCRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpRCRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+          <xs:element minOccurs="0" name="rccode" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpRCResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:getEmpRCRs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpRCRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="rccode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rcname" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpSignDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmpSignDetailRq_1" type="tns:ktbEmpSignDetailRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpSignDetailRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpSignDetailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ktbEmpSignDetailRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpSignDetailRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="costCenterCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="costCenterDescr" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="empPhoto" nillable="true" type="tns:ktbEmpPhoto"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rankDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+      <xs:element minOccurs="0" name="signClass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="expireDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="seqNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="signImage" type="xs:string"/>
+      <xs:element minOccurs="0" name="signType" type="xs:string"/>
+      <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetConsent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbConsentWS_1" type="tns:consentRetrieverq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consentRetrieverq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element name="hrsPersonId" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetConsentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbGetConsentRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmployeeWS"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmployeeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmployee"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmpContactRq_1" type="tns:ktbEmpContactRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpContactRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+          <xs:element minOccurs="0" name="headerRq" type="tns:headerRq"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpContactResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ktbEmpContactRes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpContactRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="age" type="xs:string"/>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="empname" type="xs:string"/>
+      <xs:element minOccurs="0" name="fathername" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="mothername" type="xs:string"/>
+      <xs:element minOccurs="0" name="nationality" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReportTo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmployeeWS"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReportToResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:ktbEmpReportTo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpReportTo">
+    <xs:complexContent>
+      <xs:extension base="tns:ktbHRMSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="empToID" type="xs:string"/>
+          <xs:element minOccurs="0" name="empToName" type="xs:string"/>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ktbHRMSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhotoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmpPhotoListRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpPhotoListRq">
+    <xs:complexContent>
+      <xs:extension base="tns:hrmSsystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhotoListResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:ktbEmpPhotoList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ktbEmpPhotoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emplid" type="xs:string"/>
+      <xs:element minOccurs="0" name="headerRs" type="tns:headerRs"/>
+      <xs:element minOccurs="0" name="photo" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescr" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhotoListProc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtbEmployeeWS_1" type="tns:ktbEmpPhotoListRq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpPhotoListProcResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:ktbEmpPhotoList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getEmpPhotoList">
+    <wsdl:part element="tns:getEmpPhotoList" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByRankOrCostCenterResponse">
+    <wsdl:part element="tns:getEmployeeByRankOrCostCenterResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEmpByEmailResponse">
+    <wsdl:part element="tns:GetEmpByEmailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpPhotoResponse">
+    <wsdl:part element="tns:getEmpPhotoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpPhotoListProc">
+    <wsdl:part element="tns:getEmpPhotoListProc" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpBusinessCard">
+    <wsdl:part element="tns:getEmpBusinessCard" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpRC">
+    <wsdl:part element="tns:getEmpRC" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployee">
+    <wsdl:part element="tns:getEmployee" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicense">
+    <wsdl:part element="tns:getLicense" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEmpByEmail">
+    <wsdl:part element="tns:GetEmpByEmail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetConsent">
+    <wsdl:part element="tns:GetConsent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeInfoResponse">
+    <wsdl:part element="tns:getEmployeeInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeDetail">
+    <wsdl:part element="tns:getEmployeeDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpPhoto">
+    <wsdl:part element="tns:getEmpPhoto" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseInfoResponse">
+    <wsdl:part element="tns:getLicenseInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpPhotoListResponse">
+    <wsdl:part element="tns:getEmpPhotoListResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByCitizenOrEmplidResponse">
+    <wsdl:part element="tns:getEmployeeByCitizenOrEmplidResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReportTo">
+    <wsdl:part element="tns:getReportTo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseInfo">
+    <wsdl:part element="tns:getLicenseInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpName">
+    <wsdl:part element="tns:getEmpName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpNameResponse">
+    <wsdl:part element="tns:getEmpNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpSignDetailResponse">
+    <wsdl:part element="tns:getEmpSignDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetPolicyAllResponse">
+    <wsdl:part element="tns:GetPolicyAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByNameResponse">
+    <wsdl:part element="tns:getEmployeeByNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InsertConsent">
+    <wsdl:part element="tns:InsertConsent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeResponse">
+    <wsdl:part element="tns:getEmployeeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpPhotoListProcResponse">
+    <wsdl:part element="tns:getEmpPhotoListProcResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpContact">
+    <wsdl:part element="tns:getEmpContact" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeAllResponse">
+    <wsdl:part element="tns:getEmployeeAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetConsentResponse">
+    <wsdl:part element="tns:GetConsentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetPolicyAll">
+    <wsdl:part element="tns:GetPolicyAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseType">
+    <wsdl:part element="tns:getLicenseType" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByName">
+    <wsdl:part element="tns:getEmployeeByName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseSubResponse">
+    <wsdl:part element="tns:getLicenseSubResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InsertConsentResponse">
+    <wsdl:part element="tns:InsertConsentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeInfo">
+    <wsdl:part element="tns:getEmployeeInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseTypeResponse">
+    <wsdl:part element="tns:getLicenseTypeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpBusinessCardResponse">
+    <wsdl:part element="tns:getEmpBusinessCardResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpRCResponse">
+    <wsdl:part element="tns:getEmpRCResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseSub">
+    <wsdl:part element="tns:getLicenseSub" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLicenseResponse">
+    <wsdl:part element="tns:getLicenseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByCitizenOrEmplid">
+    <wsdl:part element="tns:getEmployeeByCitizenOrEmplid" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpAbsence">
+    <wsdl:part element="tns:getEmpAbsence" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEmpConsentFlagResponse">
+    <wsdl:part element="tns:GetEmpConsentFlagResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpAbsenceResponse">
+    <wsdl:part element="tns:getEmpAbsenceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEmpConsentFlag">
+    <wsdl:part element="tns:GetEmpConsentFlag" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReportToResponse">
+    <wsdl:part element="tns:getReportToResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByRankOrCostCenter">
+    <wsdl:part element="tns:getEmployeeByRankOrCostCenter" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeAll">
+    <wsdl:part element="tns:getEmployeeAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeDetailResponse">
+    <wsdl:part element="tns:getEmployeeDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpSignDetail">
+    <wsdl:part element="tns:getEmpSignDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpContactResponse">
+    <wsdl:part element="tns:getEmpContactResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmployeeWS">
+    <wsdl:operation name="GetEmpByEmail">
+      <wsdl:input message="tns:GetEmpByEmail" name="GetEmpByEmail">
+    </wsdl:input>
+      <wsdl:output message="tns:GetEmpByEmailResponse" name="GetEmpByEmailResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseSub">
+      <wsdl:input message="tns:getLicenseSub" name="getLicenseSub">
+    </wsdl:input>
+      <wsdl:output message="tns:getLicenseSubResponse" name="getLicenseSubResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicense">
+      <wsdl:input message="tns:getLicense" name="getLicense">
+    </wsdl:input>
+      <wsdl:output message="tns:getLicenseResponse" name="getLicenseResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpBusinessCard">
+      <wsdl:input message="tns:getEmpBusinessCard" name="getEmpBusinessCard">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpBusinessCardResponse" name="getEmpBusinessCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByName">
+      <wsdl:input message="tns:getEmployeeByName" name="getEmployeeByName">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeByNameResponse" name="getEmployeeByNameResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertConsent">
+      <wsdl:input message="tns:InsertConsent" name="InsertConsent">
+    </wsdl:input>
+      <wsdl:output message="tns:InsertConsentResponse" name="InsertConsentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpConsentFlag">
+      <wsdl:input message="tns:GetEmpConsentFlag" name="GetEmpConsentFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:GetEmpConsentFlagResponse" name="GetEmpConsentFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeInfo">
+      <wsdl:input message="tns:getEmployeeInfo" name="getEmployeeInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeInfoResponse" name="getEmployeeInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByCitizenOrEmplid">
+      <wsdl:input message="tns:getEmployeeByCitizenOrEmplid" name="getEmployeeByCitizenOrEmplid">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeByCitizenOrEmplidResponse" name="getEmployeeByCitizenOrEmplidResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpAbsence">
+      <wsdl:input message="tns:getEmpAbsence" name="getEmpAbsence">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpAbsenceResponse" name="getEmpAbsenceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyAll">
+      <wsdl:input message="tns:GetPolicyAll" name="GetPolicyAll">
+    </wsdl:input>
+      <wsdl:output message="tns:GetPolicyAllResponse" name="GetPolicyAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByRankOrCostCenter">
+      <wsdl:input message="tns:getEmployeeByRankOrCostCenter" name="getEmployeeByRankOrCostCenter">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeByRankOrCostCenterResponse" name="getEmployeeByRankOrCostCenterResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeDetail">
+      <wsdl:input message="tns:getEmployeeDetail" name="getEmployeeDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeDetailResponse" name="getEmployeeDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseInfo">
+      <wsdl:input message="tns:getLicenseInfo" name="getLicenseInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getLicenseInfoResponse" name="getLicenseInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpName">
+      <wsdl:input message="tns:getEmpName" name="getEmpName">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpNameResponse" name="getEmpNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhoto">
+      <wsdl:input message="tns:getEmpPhoto" name="getEmpPhoto">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpPhotoResponse" name="getEmpPhotoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeAll">
+      <wsdl:input message="tns:getEmployeeAll" name="getEmployeeAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeAllResponse" name="getEmployeeAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseType">
+      <wsdl:input message="tns:getLicenseType" name="getLicenseType">
+    </wsdl:input>
+      <wsdl:output message="tns:getLicenseTypeResponse" name="getLicenseTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpRC">
+      <wsdl:input message="tns:getEmpRC" name="getEmpRC">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpRCResponse" name="getEmpRCResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpSignDetail">
+      <wsdl:input message="tns:getEmpSignDetail" name="getEmpSignDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpSignDetailResponse" name="getEmpSignDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsent">
+      <wsdl:input message="tns:GetConsent" name="GetConsent">
+    </wsdl:input>
+      <wsdl:output message="tns:GetConsentResponse" name="GetConsentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+      <wsdl:input message="tns:getEmployee" name="getEmployee">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeResponse" name="getEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpContact">
+      <wsdl:input message="tns:getEmpContact" name="getEmpContact">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpContactResponse" name="getEmpContactResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportTo">
+      <wsdl:input message="tns:getReportTo" name="getReportTo">
+    </wsdl:input>
+      <wsdl:output message="tns:getReportToResponse" name="getReportToResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhotoList">
+      <wsdl:input message="tns:getEmpPhotoList" name="getEmpPhotoList">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpPhotoListResponse" name="getEmpPhotoListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhotoListProc">
+      <wsdl:input message="tns:getEmpPhotoListProc" name="getEmpPhotoListProc">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmpPhotoListProcResponse" name="getEmpPhotoListProcResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeWSServiceSoapBinding" type="tns:EmployeeWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetEmpByEmail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetEmpByEmail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetEmpByEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseSub">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLicenseSub">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLicenseSubResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicense">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLicense">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLicenseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpBusinessCard">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpBusinessCard">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpBusinessCardResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpConsentFlag">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetEmpConsentFlag">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetEmpConsentFlagResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertConsent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="InsertConsent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="InsertConsentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeByName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetPolicyAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetPolicyAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpAbsence">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpAbsence">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpAbsenceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByCitizenOrEmplid">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeByCitizenOrEmplid">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByCitizenOrEmplidResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByRankOrCostCenter">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeByRankOrCostCenter">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByRankOrCostCenterResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeDetail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeDetail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhoto">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpPhoto">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpPhotoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLicenseInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLicenseInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpRC">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpRC">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpRCResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLicenseType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLicenseTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetConsent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetConsentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpSignDetail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpSignDetail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpSignDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpContact">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpContact">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpContactResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployee">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportTo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getReportTo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getReportToResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhotoListProc">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpPhotoListProc">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpPhotoListProcResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpPhotoList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmpPhotoList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpPhotoListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeWSService">
+    <wsdl:port binding="tns:EmployeeWSServiceSoapBinding" name="EmployeeWSPort">
+      <soap:address location="http://10.9.213.183:8480/HRMSWS/EmployeeWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
